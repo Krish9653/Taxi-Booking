@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gaurav Tourist & Taxi Services</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #f5f7fb;
+        color: #222;
+        overflow-x: hidden;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* HEADER */
+      header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(10px);
+        padding: 15px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        color: #fff;
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      .logo span {
+        color: #ffb400;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 25px;
+        transition: 0.3s;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        color: #ffb400;
+      }
+
+      /* HERO */
+      .hero {
+        height: 100vh;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+          url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .hero-content {
+        color: #fff;
+        max-width: 800px;
+        animation: fadeIn 1.5s ease;
+      }
+
+      .hero h1 {
+        font-size: 58px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 20px;
+        margin-bottom: 30px;
+        line-height: 1.7;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 34px;
+        background: #ffb400;
+        color: #000;
+        text-decoration: none;
+        border-radius: 40px;
+        font-weight: 600;
+        transition: 0.4s;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        background: #fff;
+      }
+
+      /* SECTION */
+      section {
+        padding: 90px 8%;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 50px;
+        color: #111;
+      }
+
+      /* SERVICES */
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 25px;
+      }
+
+      .service-card {
+        background: #fff;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: 0.4s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .service-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .service-card h3 {
+        padding: 20px 20px 10px;
+        font-size: 24px;
+      }
+
+      .service-card p {
+        padding: 0 20px 25px;
+        color: #666;
+        line-height: 1.7;
+      }
+
+      /* FEATURES */
+      .features {
+        background: #111;
+        color: #fff;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+        text-align: center;
+      }
+
+      .feature-box {
+        background: #1d1d1d;
+        padding: 35px 20px;
+        border-radius: 18px;
+        transition: 0.3s;
+      }
+
+      .feature-box:hover {
+        background: #ffb400;
+        color: #000;
+      }
+
+      .feature-box h3 {
+        margin-bottom: 12px;
+        font-size: 22px;
+      }
+
+      /* BOOKING FORM */
+      .booking-container {
+        background: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        max-width: 950px;
+        margin: auto;
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        outline: none;
+        font-size: 15px;
+      }
+
+      textarea {
+        resize: none;
+        height: 120px;
+        grid-column: 1/-1;
+      }
+
+      .submit-btn {
+        grid-column: 1/-1;
+        padding: 16px;
+        border: none;
+        background: #25d366;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-weight: 600;
+      }
+
+      .submit-btn:hover {
+        background: #1daa52;
+      }
+
+      /* FOOTER */
+      footer {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 30px 20px;
+      }
+
+      footer p {
+        margin: 8px 0;
+      }
+
+      /* ANIMATION */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* MOBILE */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 38px;
+        }
+
+        .hero p {
+          font-size: 16px;
+        }
+
+        nav {
+          display: none;
+        }
+
+        .section-title {
+          font-size: 32px;
+        }
+
+        .booking-container {
+          padding: 25px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="logo">Gaurav <span>Tourist & Taxi</span></div>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#cars">Cars</a>
+        <a href="#features">Features</a>
+        <a href="#booking">Booking</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Delhi & Outstation Taxi Services</h1>
+
+        <p>
+          Comfortable, affordable and reliable taxi service for Delhi local
+          sightseeing, airport transfers and outstation trips.
+        </p>
+
+        <a href="#booking" class="btn">Book Your Ride</a>
+      </div>
+    </section>
+
+    <!-- CARS -->
+    <section id="cars">
+      <h2 class="section-title">Our Vehicles</h2>
+
+      <div class="services">
+        <div class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1200&auto=format&fit=crop"
+          />
+          <h3>Innova Crysta</h3>
+          <p>
+            Premium SUV for family tours, airport transfers and long-distance
+            travel.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop"
+          />
+          <h3>Sedan</h3>
+          <p>
+            Comfortable and budget-friendly sedan rides for city and outstation
+            travel.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1200&auto=format&fit=crop"
+          />
+          <h3>Van</h3>
+          <p>Spacious van service for groups, weddings and tourist trips.</p>
+        </div>
+
+        <div class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1200&auto=format&fit=crop"
+          />
+          <h3>Hatchback</h3>
+          <p>Affordable hatchback taxis for local rides and daily commuting.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+      <h2 class="section-title" style="color: #fff">Why Choose Us</h2>
+
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h3>24/7 Service</h3>
+          <p>Available anytime for local and outstation bookings.</p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Professional Drivers</h3>
+          <p>Experienced and verified drivers for safe journeys.</p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Affordable Pricing</h3>
+          <p>Best rates with no hidden charges.</p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Clean Vehicles</h3>
+          <p>Well-maintained and sanitized vehicles.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section id="booking">
+      <h2 class="section-title">Book Your Taxi</h2>
+
+      <div class="booking-container">
+        <form id="bookingForm">
+          <input type="text" id="name" placeholder="Full Name" required />
+
+          <input type="tel" id="phone" placeholder="Contact Number" required />
+
+          <input
+            type="text"
+            id="pickup"
+            placeholder="Pickup Location"
+            required
+          />
+
+          <input type="text" id="drop" placeholder="Drop Location" required />
+
+          <input type="date" id="date" required />
+
+          <input type="time" id="time" required />
+
+          <select id="car" required>
+            <option value="">Select Vehicle</option>
+            <option>Innova Crysta</option>
+            <option>Sedan</option>
+            <option>Van</option>
+            <option>Hatchback</option>
+          </select>
+
+          <select id="tripType" required>
+            <option value="">Trip Type</option>
+            <option>Local</option>
+            <option>Outstation</option>
+            <option>Airport Transfer</option>
+            <option>One Way</option>
+            <option>Round Trip</option>
+          </select>
+
+          <input
+            type="number"
+            id="passengers"
+            placeholder="Number of Passengers"
+          />
+
+          <textarea
+            id="message"
+            placeholder="Additional Requirements"
+          ></textarea>
+
+          <button type="submit" class="submit-btn">Book on WhatsApp</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p><strong>Gaurav Tourist & Taxi Services</strong></p>
+      <p>Delhi Local & Outstation Taxi Service</p>
+      <p>WhatsApp Booking: +91 9653531811</p>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+      document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          let name = document.getElementById("name").value;
+          let phone = document.getElementById("phone").value;
+          let pickup = document.getElementById("pickup").value;
+          let drop = document.getElementById("drop").value;
+          let date = document.getElementById("date").value;
+          let time = document.getElementById("time").value;
+          let car = document.getElementById("car").value;
+          let trip = document.getElementById("tripType").value;
+          let passengers = document.getElementById("passengers").value;
+          let message = document.getElementById("message").value;
+
+          let whatsappMessage = `🚖 *New Taxi Booking Request* %0A%0A
+👤 Name: ${name}%0A
+📞 Contact: ${phone}%0A
+📍 Pickup: ${pickup}%0A
+📍 Drop: ${drop}%0A
+📅 Date: ${date}%0A
+⏰ Time: ${time}%0A
+🚘 Vehicle: ${car}%0A
+🛣 Trip Type: ${trip}%0A
+👥 Passengers: ${passengers}%0A
+📝 Message: ${message}`;
+
+          let whatsappURL = `https://wa.me/919653531811?text=${whatsappMessage}`;
+
+          window.open(whatsappURL, "_blank");
+        });
+    </script>
+  </body>
+</html>
